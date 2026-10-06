@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Apex Motors - Drive Excellence</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f6ff',
+                            100: '#e0edff',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            accent: '#00f0ff', // Electric cyan accent
+                            gold: '#f59e0b',
+                            dark: '#0a0d14',
+                            surface: '#121824',
+                            card: '#1a2332',
+                            border: '#2a364f'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'float': 'float 6s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.4 },
+                            '50%': { opacity: 0.8 }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0d14;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(26, 35, 50, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-panel-hover:hover {
+            background: rgba(30, 42, 62, 0.85);
+            border-color: rgba(0, 240, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0, 240, 255, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #00f0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0a0d14;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2a364f;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar selection:bg-brand-accent selection:text-brand-dark">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-accent flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-car-side text-brand-dark text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-2xl tracking-tight text-white flex items-center gap-1">
+                        APEX<span class="text-brand-accent">MOTORS</span>
+                    </span>
+                    <span class="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">Buying & Selling Redefined</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+                <a href="#story" class="hover:text-brand-accent transition-colors">Our Story</a>
+                <a href="#why-us" class="hover:text-brand-accent transition-colors">Why Choose Us</a>
+                <a href="#calculator" class="hover:text-brand-accent transition-colors">Valuation</a>
+                <a href="#team" class="hover:text-brand-accent transition-colors">Leadership</a>
+                <a href="#testimonials" class="hover:text-brand-accent transition-colors">Reviews</a>
+            </nav>
+
+            <!-- CTA Header Buttons -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#calculator" class="px-4 py-2 rounded-lg text-sm font-semibold text-brand-accent border border-brand-accent/30 hover:bg-brand-accent/10 transition-colors">
+                    Sell Your Car
+                </a>
+                <a href="#inventory" onclick="showModal('inventory-modal')" class="px-5 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-blue-700 shadow-md shadow-brand-500/20 transition-all hover:scale-[1.02]">
+                    Explore Cars
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-gray-300 hover:text-white p-2 text-xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-brand-border p-4 flex flex-col gap-4">
+            <a href="#story" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-brand-accent py-2">Our Story</a>
+            <a href="#why-us" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-brand-accent py-2">Why Choose Us</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-brand-accent py-2">Valuation</a>
+            <a href="#team" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-brand-accent py-2">Leadership</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-brand-accent py-2">Reviews</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="#calculator" onclick="toggleMobileMenu()" class="w-full text-center py-2.5 rounded-lg text-sm font-semibold text-brand-accent border border-brand-accent/30 bg-brand-accent/5">
+                    Sell Your Car
+                </a>
+                <a href="#inventory" onclick="toggleMobileMenu(); showModal('inventory-modal')" class="w-full text-center py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-500">
+                    Explore Inventory
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden flex items-center justify-center">
+        <!-- Background Ambient Glows & Image Overlay -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-15 filter blur-[1px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/90 via-brand-dark/95 to-brand-dark"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/20 rounded-full blur-[130px] pointer-events-none animate-pulse-glow"></div>
+        <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-brand-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-surface/80 border border-brand-accent/30 text-brand-accent text-xs sm:text-sm font-medium mb-8 backdrop-blur-md">
+                <span class="flex h-2 w-2 rounded-full bg-brand-accent animate-ping"></span>
+                <span>The Premier Luxury & Quality Car Marketplace</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
+                Revolutionizing How You <br class="hidden sm:inline"/>
+                <span class="gradient-text">Buy, Trade & Sell</span> Luxury Vehicles
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-400 font-normal leading-relaxed mb-10">
+                At <span class="text-white font-semibold">Apex Motors</span>, we bridge the gap between premium car sellers and discerning buyers through transparent pricing, rigorous 150-point inspections, and instant digital valuations.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#inventory" onclick="showModal('inventory-modal')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 via-blue-600 to-brand-accent text-white font-bold text-base shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all flex items-center justify-center gap-3 group">
+                    <span>Browse Luxury Inventory</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-white font-bold text-base hover:bg-brand-surface border border-gray-700 hover:border-brand-accent/50 hover:scale-105 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calculator text-brand-accent"></i>
+                    <span>Get Instant Trade-In Value</span>
+                </a>
+            </div>
+
+            <!-- Quick Trust Badges -->
+            <div class="mt-16 pt-8 border-t border-brand-border/40 grid grid-cols-2 md:grid-cols-4 gap-6 text-gray-400 text-sm">
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-brand-accent text-lg"></i>
+                    <span>Verified Vehicle History</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-bolt text-brand-gold text-lg"></i>
+                    <span>Instant Same-Day Cash</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-truck-fast text-brand-accent text-lg"></i>
+                    <span>Nationwide Delivery</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-thumbs-up text-green-400 text-lg"></i>
+                    <span>7-Day Money-Back Guarantee</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="py-20 bg-brand-surface/50 relative border-y border-brand-border/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left Image Composition -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border border-brand-border shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200" alt="Apex Motors Showroom" class="w-full h-[400px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-xl">
+                            <p class="text-sm text-gray-300 italic">"Our flagship facility in Dallas, TX where every luxury vehicle undergoes rigorous certification."</p>
+                        </div>
+                    </div>
+                    <!-- Decorative Background Card -->
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-brand-accent/20 rounded-2xl -z-0 hidden sm:block"></div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl"></div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-500/10 border border-brand-500/20 text-brand-500 font-semibold text-xs tracking-wider uppercase">
+                        Our Journey & Philosophy
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Redefining Car Ownership with Total Transparency
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        Founded in 2011, **Apex Motors** began with a simple mission: eliminate the stress, hidden fees, and high-pressure tactics traditionally associated with buying or selling a car.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Whether you are selling a sports sedan for top market value or searching for a meticulously inspected pre-owned SUV, we bring trust back into the automotive transaction. Over 15 years, we’ve developed proprietary evaluation algorithms combined with real human master technicians to guarantee fairness.
+                    </p>
+
+                    <!-- Core Values Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-brand-card/60 border border-brand-border/60">
+                            <div class="w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent mb-2">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-base">Uncompromising Integrity</h4>
+                            <p class="text-xs text-gray-400 mt-1">Zero hidden costs, direct valuation breakdown, and full Carfax reports on demand.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-card/60 border border-brand-border/60">
+                            <div class="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-2">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-base">White-Glove Service</h4>
+                            <p class="text-xs text-gray-400 mt-1">Home delivery, virtual test drives, and dedicated concierge specialists.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-3">Why Apex Motors Stand Out</h2>
+                <p class="text-3xl sm:text-5xl font-extrabold text-white">Engineered For Your Convenience</p>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">We streamline car transactions through technology, precision evaluation, and customer-first guarantees.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Instant Cash Offers</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Sell your vehicle in minutes. Our real-time market data provides competitive, non-negotiable cash offers backed by electronic bank transfers.
+                    </p>
+                    <span class="text-xs font-semibold text-brand-accent flex items-center gap-1">
+                        Learn more <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">150+ Point Inspection</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Every car listed on Apex undergoes rigorous mechanical, bodywork, and digital diagnostic tests by certified ASE master technicians.
+                    </p>
+                    <span class="text-xs font-semibold text-brand-accent flex items-center gap-1">
+                        Learn more <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Seamless Financing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Partnered with 20+ top national lenders to offer custom loan packages, zero-down payment options, and instant pre-qualifications without credit impact.
+                    </p>
+                    <span class="text-xs font-semibold text-brand-accent flex items-center gap-1">
+                        Learn more <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Nationwide Door Delivery</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Buy from anywhere in the country and have your vehicle delivered right to your driveway in a secure, enclosed transport truck.
+                    </p>
+                    <span class="text-xs font-semibold text-brand-accent flex items-center gap-1">
+                        Learn more <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">7-Day Return Guarantee</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Drive it, test it, love it. If your purchased vehicle doesn’t fit your lifestyle within 7 days or 250 miles, receive a 100% full refund hassle-free.
+                    </p>
+                    <span class="text-xs font-semibold text-brand-accent flex items-center gap-1">
+                        Learn more <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-tag"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Fixed Clear-Cut Pricing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        No haggling, no dealer add-ons, and no hidden document fees. What you see on our screen is the exact price you pay.
+                    </p>
+                    <span class="text-xs font-semibold text-brand-accent flex items-center gap-1">
+                        Learn more <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-20 bg-brand-surface relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-brand-accent/20 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Left Copy -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-semibold text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-calculator"></i> Trade-In & Cash Estimator
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">What is Your Car Worth Today?</h2>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Use our instant estimation tool powered by real-time automotive market sales history. Get a guaranteed purchase offer in seconds.
+                        </p>
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                <span>No commitment required</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                <span>Instant payout upon physical verification</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                                <span>We handle all DMV paperwork</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Form Widget -->
+                    <div class="lg:col-span-7 bg-brand-dark/80 p-6 sm:p-8 rounded-2xl border border-brand-border">
+                        <form id="valuation-form" class="space-y-5" onsubmit="calculateValue(event)">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Year -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-2 uppercase">Year</label>
+                                    <select id="car-year" class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent text-sm" required onchange="updateModels()">
+                                        <option value="">Select Year</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2015">2015</option>
+                                    </select>
+                                </div>
+                                <!-- Make -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-2 uppercase">Make</label>
+                                    <select id="car-make" class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent text-sm" required onchange="updateModels()">
+                                        <option value="">Select Make</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                        <option value="Audi">Audi</option>
+                                        <option value="Porsche">Porsche</option>
+                                        <option value="Tesla">Tesla</option>
+                                        <option value="Ford">Ford</option>
+                                        <option value="Toyota">Toyota</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Model -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-2 uppercase">Model</label>
+                                    <select id="car-model" class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent text-sm" required>
+                                        <option value="">Select Make First</option>
+                                    </select>
+                                </div>
+                                <!-- Condition -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-2 uppercase">Condition</label>
+                                    <select id="car-condition" class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent text-sm" required>
+                                        <option value="1.15">Excellent (Mint condition, clean title)</option>
+                                        <option value="1.0" selected>Good (Minor wear, well maintained)</option>
+                                        <option value="0.85">Fair (Needs cosmetic/minor work)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Mileage Slider -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold text-gray-400 mb-2">
+                                    <span class="uppercase">Estimated Mileage</span>
+                                    <span id="mileage-val" class="text-brand-accent font-bold text-sm">30,000 Miles</span>
+                                </div>
+                                <input type="range" id="car-mileage" min="1000" max="150000" step="1000" value="30000" class="w-full h-2 bg-brand-surface rounded-lg appearance-none cursor-pointer accent-brand-accent" oninput="document.getElementById('mileage-val').innerText = parseInt(this.value).toLocaleString() + ' Miles'">
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-500 to-brand-accent text-brand-dark font-extrabold text-base hover:opacity-95 transition-opacity shadow-lg shadow-brand-accent/20">
+                                Calculate Value Now
+                            </button>
+                        </form>
+
+                        <!-- Valuation Result Display -->
+                        <div id="valuation-result" class="hidden mt-6 pt-6 border-t border-brand-border/60 text-center animate-fade-in">
+                            <span class="text-xs uppercase text-gray-400 font-semibold tracking-wider">Estimated Trade-In Value</span>
+                            <div class="text-4xl sm:text-5xl font-extrabold gradient-text my-2" id="estimated-price">$0</div>
+                            <p class="text-xs text-gray-400 mb-4">Estimated instant cash payout range. Lock in your quote today.</p>
+                            <button onclick="showModal('offer-modal')" class="px-6 py-2.5 rounded-lg bg-brand-accent text-brand-dark font-bold text-sm hover:bg-white transition-colors">
+                                Claim Guaranteed Offer
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-r from-brand-dark via-brand-surface to-brand-dark border-b border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                
+                <div class="space-y-2">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-white font-display flex items-center justify-center gap-1">
+                        <span class="counter" data-target="52000">0</span><span>+</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Cars Bought & Sold</p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-brand-accent font-display flex items-center justify-center gap-1">
+                        <span class="counter" data-target="99">0</span><span>%</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Customer Satisfaction Rate</p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-white font-display flex items-center justify-center gap-1">
+                        <span class="counter" data-target="15">0</span><span>+</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Years in Industry</p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-brand-gold font-display flex items-center justify-center gap-1">
+                        <span>$</span><span class="counter" data-target="850">0</span><span>M+</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-400 font-medium">Total Transactions Value</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-3">Execs & Visionaries</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Meet Our Leadership Team</p>
+                <p class="text-gray-400 mt-3 text-sm sm:text-base">Decades of combined experience from tech giants, automotive manufacturing, and luxury retail.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group hover:border-brand-accent/40 transition-all duration-300">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="Marcus Sterling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-xl font-bold text-white">Marcus Sterling</h3>
+                        <p class="text-brand-accent text-xs font-semibold mb-3">Founder & CEO</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Former Automotive VP with 20+ years of passion for luxury car trading and market expansion.</p>
+                        <div class="flex items-center gap-3 text-gray-400 text-sm">
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group hover:border-brand-accent/40 transition-all duration-300">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Elena Rostova" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-xl font-bold text-white">Elena Rostova</h3>
+                        <p class="text-brand-accent text-xs font-semibold mb-3">Chief Technology Officer</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Architected our proprietary pricing algorithms and online digital purchasing pipeline.</p>
+                        <div class="flex items-center gap-3 text-gray-400 text-sm">
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group hover:border-brand-accent/40 transition-all duration-300">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600" alt="David Vance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-xl font-bold text-white">David Vance</h3>
+                        <p class="text-brand-accent text-xs font-semibold mb-3">Head of Inspection & Master Tech</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">25 years of hands-on expertise overseeing quality assurance and 150-point certifications.</p>
+                        <div class="flex items-center gap-3 text-gray-400 text-sm">
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-solid fa-wrench"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group hover:border-brand-accent/40 transition-all duration-300">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600" alt="Sophia Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-xl font-bold text-white">Sophia Chen</h3>
+                        <p class="text-brand-accent text-xs font-semibold mb-3">VP of Customer Experience</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Dedicated to crafting frictionless trades, door-to-door delivery, and concierge support.</p>
+                        <div class="flex items-center gap-3 text-gray-400 text-sm">
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 bg-brand-surface/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-3">Client Reviews</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Loved by Sellers & Buyers Nationwide</p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-gold text-sm gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                            "Apex Motors bought my Porsche 911 in less than 24 hours. The price they offered was $3,200 higher than the traditional dealership trade-in quote. Direct wire payment within hours!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-brand-border/40">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="Jason Miller" class="w-11 h-11 rounded-full object-cover border border-brand-accent/40">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Jason Miller</h4>
+                            <p class="text-xs text-gray-400">Sold 2021 Porsche Carrera</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-gold text-sm gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                            "Buying my BMW M4 online without visiting a lot sounded risky, but Apex delivered the car directly to my home in Atlanta. It was cleaner than showroom condition with all records."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-brand-border/40">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Sarah Jenkins" class="w-11 h-11 rounded-full object-cover border border-brand-accent/40">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Sarah Jenkins</h4>
+                            <p class="text-xs text-gray-400">Bought 2022 BMW M4</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-gold text-sm gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                            "The trade-in process was effortless. They handled my existing loan payoff, delivered my new Tesla Model X, and picked up my old car simultaneously. Unbelievable service!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-brand-border/40">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150" alt="Michael Torres" class="w-11 h-11 rounded-full object-cover border border-brand-accent/40">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Michael Torres</h4>
+                            <p class="text-xs text-gray-400">Traded for 2023 Tesla Model X</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark border-t border-brand-border/60 pt-16 pb-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-brand-border/40">
+                
+                <!-- Brand Info Column -->
+                <div class="lg:col-span-2 space-y-4">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-accent flex items-center justify-center">
+                            <i class="fa-solid fa-car-side text-brand-dark"></i>
+                        </div>
+                        <span class="font-display font-extrabold text-2xl tracking-tight text-white">
+                            APEX<span class="text-brand-accent">MOTORS</span>
+                        </span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Apex Motors is the trusted nationwide marketplace for premium pre-owned luxury vehicles. Transparent, fast, and 100% digital-ready.
+                    </p>
+                    <div class="flex items-center gap-4 pt-2 text-gray-400">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-surface border border-brand-border flex items-center justify-center hover:text-brand-accent hover:border-brand-accent transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-surface border border-brand-border flex items-center justify-center hover:text-brand-accent hover:border-brand-accent transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-surface border border-brand-border flex items-center justify-center hover:text-brand-accent hover:border-brand-accent transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-surface border border-brand-border flex items-center justify-center hover:text-brand-accent hover:border-brand-accent transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#inventory" onclick="showModal('inventory-modal')" class="hover:text-brand-accent transition-colors">Browse Inventory</a></li>
+                        <li><a href="#calculator" class="hover:text-brand-accent transition-colors">Sell Your Vehicle</a></li>
+                        <li><a href="#calculator" class="hover:text-brand-accent transition-colors">Instant Valuation</a></li>
+                        <li><a href="#why-us" class="hover:text-brand-accent transition-colors">150-Point Check</a></li>
+                        <li><a href="#story" class="hover:text-brand-accent transition-colors">Company Story</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hours & Location -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4">Showroom Hours</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li class="flex justify-between"><span class="text-gray-300">Mon - Fri:</span> <span>9:00 AM - 8:00 PM</span></li>
+                        <li class="flex justify-between"><span class="text-gray-300">Saturday:</span> <span>10:00 AM - 6:00 PM</span></li>
+                        <li class="flex justify-between"><span class="text-gray-300">Sunday:</span> <span class="text-brand-accent font-medium">By Appointment</span></li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-brand-border/40 text-xs text-gray-400">
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-accent"></i> 100 Apex Boulevard, Dallas, TX 75201</p>
+                        <p class="flex items-center gap-2 mt-2"><i class="fa-solid fa-phone text-brand-accent"></i> (800) 555-APEX</p>
+                    </div>
+                </div>
+
+                <!-- Newsletter Signup -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4">Stay Informed</h4>
+                    <p class="text-xs text-gray-400 mb-3">Subscribe for exclusive new inventory alerts and luxury automotive market insights.</p>
+                    <form onsubmit="handleSubscribe(event)" class="space-y-2">
+                        <input type="email" placeholder="Your email address" required class="w-full bg-brand-surface border border-brand-border rounded-lg px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand-accent">
+                        <button type="submit" class="w-full py-2.5 rounded-lg bg-brand-accent text-brand-dark font-bold text-xs hover:bg-white transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Apex Motors LLC. All rights reserved. Premium Car Buying & Selling.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-300">Licensing</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Modal Container -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-brand-dark/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        
+        <!-- Inventory Modal -->
+        <div id="inventory-modal" class="glass-panel max-w-xl w-full p-6 sm:p-8 rounded-2xl border border-brand-accent/30 hidden relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent flex items-center justify-center mx-auto mb-4 text-xl">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">Explore 200+ Luxury Cars</h3>
+                <p class="text-gray-300 text-sm mb-6">Our inventory is updated daily with certified luxury sedans, sport coupes, and electric SUVs.</p>
+                
+                <div class="grid grid-cols-2 gap-3 text-left mb-6 text-xs text-gray-300">
+                    <div class="p-3 bg-brand-surface rounded-xl border border-brand-border"><span class="font-bold text-white">Porsche 911 GT3</span> - 2023</div>
+                    <div class="p-3 bg-brand-surface rounded-xl border border-brand-border"><span class="font-bold text-white">BMW M5 Competition</span> - 2022</div>
+                    <div class="p-3 bg-brand-surface rounded-xl border border-brand-border"><span class="font-bold text-white">Mercedes AMG G63</span> - 2024</div>
+                    <div class="p-3 bg-brand-surface rounded-xl border border-brand-border"><span class="font-bold text-white">Audi RS e-tron GT</span> - 2023</div>
+                </div>
+
+                <button onclick="closeModal(); showToast('Redirecting to full vehicle inventory...')" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-500 to-brand-accent text-brand-dark font-extrabold text-sm">
+                    View Complete Inventory Catalog
+                </button>
+            </div>
+        </div>
+
+        <!-- Offer Modal -->
+        <div id="offer-modal" class="glass-panel max-w-md w-full p-6 sm:p-8 rounded-2xl border border-brand-accent/30 hidden relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 flex items-center justify-center mx-auto mb-4 text-xl">
+                    <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Lock In Your Instant Valuation</h3>
+                <p class="text-gray-300 text-xs mb-4">Provide your details to send this valuation to an Apex Specialist for a guaranteed same-day cash offer.</p>
+                
+                <form onsubmit="handleClaimOffer(event)" class="space-y-3 text-left">
+                    <input type="text" placeholder="Full Name" required class="w-full bg-brand-surface border border-brand-border rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-accent">
+                    <input type="email" placeholder="Email Address" required class="w-full bg-brand-surface border border-brand-border rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-accent">
+                    <input type="tel" placeholder="Phone Number" required class="w-full bg-brand-surface border border-brand-border rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-accent">
+                    <button type="submit" class="w-full py-3 rounded-lg bg-brand-accent text-brand-dark font-bold text-xs hover:bg-white transition-colors">
+                        Submit Offer Request
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel px-5 py-3 rounded-xl border border-brand-accent/40 text-white text-xs font-semibold shadow-2xl hidden transform transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-info text-brand-accent text-base"></i>
+        <span id="toast-message">Message text</span>
+    </div>
+
+    <script>
+        // Car Data Models Mapping for Trade-In Calculator
+        const carModels = {
+            'BMW': ['M3 Sedan', 'M5 Competition', 'X5 M Sport', '7 Series', 'i4 Electric'],
+            'Mercedes-Benz': ['C63 AMG', 'E350 Sedan', 'G63 AMG', 'S580', 'EQS SUV'],
+            'Audi': ['RS6 Avant', 'R8 V10', 'Q8 Sportback', 'S5 Coupe', 'e-tron GT'],
+            'Porsche': ['911 Carrera', 'Taycan Turbo S', 'Cayenne GTS', 'Panamera', '718 Cayman'],
+            'Tesla': ['Model S Plaid', 'Model 3 Performance', 'Model X', 'Model Y Long Range'],
+            'Ford': ['Mustang GT', 'F-150 Lightning', 'Bronco Raptor'],
+            'Toyota': ['GR Supra', 'Land Cruiser', '4Runner TRD Pro']
+        };
+
+        // Base price approximations for trade-in demo calculation
+        const basePrices = {
+            'Porsche': 85000,
+            'Mercedes-Benz': 55000,
+            'BMW': 52000,
+            'Audi': 48000,
+            'Tesla': 45000,
+            'Ford': 32000,
+            'Toyota': 28000
+        };
+
+        // Dynamically update model options based on selected Make
+        function updateModels() {
+            const makeSelect = document.getElementById('car-make');
+            const modelSelect = document.getElementById('car-model');
+            const selectedMake = makeSelect.value;
+
+            modelSelect.innerHTML = '<option value="">Select Model</option>';
+
+            if (selectedMake && carModels[selectedMake]) {
+                carModels[selectedMake].forEach(model => {
+                    const option = document.createElement('option');
+                    option.value = model;
+                    option.textContent = model;
+                    modelSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Calculate trade-in valuation
+        function calculateValue(e) {
+            e.preventDefault();
+            const year = parseInt(document.getElementById('car-year').value);
+            const make = document.getElementById('car-make').value;
+            const mileage = parseInt(document.getElementById('car-mileage').value);
+            const conditionMultiplier = parseFloat(document.getElementById('car-condition').value);
+
+            if (!year || !make) return;
+
+            // Base calculation logic
+            let base = basePrices[make] || 35000;
+            let yearDepreciation = (2026 - year) * 0.08;
+            let mileageDepreciation = (mileage / 10000) * 0.02;
+
+            let estimated = base * (1 - yearDepreciation) * (1 - mileageDepreciation) * conditionMultiplier;
+            if (estimated < 5000) estimated = 5000; // Floor threshold
+
+            const formattedPrice = '$' + Math.round(estimated).toLocaleString();
+            document.getElementById('estimated-price').innerText = formattedPrice;
+            document.getElementById('valuation-result').classList.remove('hidden');
+            
+            showToast('Valuation generated successfully!');
+        }
+
+        // Animated Stats Counter
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // 2 seconds
+                const stepTime = 20;
+                const steps = duration / stepTime;
+                const increment = target / steps;
+
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = Math.ceil(current).toLocaleString();
+                    }
+                }, stepTime);
+            });
+        }
+
+        // Trigger Counter Animation when section is visible
+        let counterTriggered = false;
+        window.addEventListener('scroll', () => {
+            const counterSection = document.querySelector('.counter');
+            if (counterSection && !counterTriggered) {
+                const rect = counterSection.getBoundingClientRect();
+                if (rect.top <= window.innerHeight) {
+                    startCounters();
+                    counterTriggered = true;
+                }
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Modal Helpers
+        function showModal(modalId) {
+            document.getElementById('modal-backdrop').classList.remove('hidden');
+            document.querySelectorAll('#modal-backdrop > div').forEach(m => m.classList.add('hidden'));
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-backdrop').classList.add('hidden');
+        }
+
+        // Close modal when clicking backdrop
+        document.getElementById('modal-backdrop').addEventListener('click', (e) => {
+            if (e.target.id === 'modal-backdrop') closeModal();
+        });
+
+        // Form handlers & Toast alerts
+        function handleClaimOffer(e) {
+            e.preventDefault();
+            closeModal();
+            showToast('Offer Request Received! A specialist will contact you shortly.');
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            e.target.reset();
+            showToast('Thank you for subscribing to Apex Motors!');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+
+        // Initial check for counter animation on page load
+        window.onload = function () {
+            if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 500) {
+                startCounters();
+                counterTriggered = true;
+            }
+        }
+    </script>
+</body>
+</html>
